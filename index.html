@@ -53,6 +53,22 @@
             align-items: center;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.1);
+        }
+
         .logo {
             font-family: var(--font-serif);
             font-size: 2rem;
@@ -114,6 +130,19 @@
 
         .cart-icon:hover {
             color: var(--color-gold);
+        }
+
+        .instagram-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-icon:hover {
+            color: var(--color-gold);
+            transform: scale(1.1);
         }
 
         .cart-count {
@@ -781,13 +810,17 @@
     <!-- Header -->
     <header>
         <div class="header-content">
-            <a href="#" class="logo">ICONIC</a>
+            <div class="logo-container">
+                <img src="logo.png" alt="ICONIC Logo" class="logo-image">
+                <a href="#" class="logo">ICONIC</a>
+            </div>
             <nav class="nav-links">
                 <a href="#products">Collections</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-icons">
+                <a href="https://instagram.com/iconic__egy_" target="_blank" class="instagram-icon" title="Follow us on Instagram">📷</a>
                 <div class="cart-icon" id="cartIcon">
                     🛍️
                     <span class="cart-count" id="cartCount">0</span>
