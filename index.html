@@ -30,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* ====== HEADER ====== */
         header {
             background-color: rgba(5, 15, 19, 0.98);
             border-bottom: 2px solid var(--color-primary);
@@ -52,11 +51,6 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
-
-        .logo-image {
-            height: 50px;
-            width: auto;
         }
 
         .logo {
@@ -86,7 +80,6 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.15s ease;
-            position: relative;
         }
 
         .nav-links a:hover {
@@ -104,6 +97,9 @@
             cursor: pointer;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .cart-icon:hover {
@@ -139,7 +135,6 @@
             font-weight: 700;
         }
 
-        /* ====== HERO SECTION ====== */
         .hero {
             background: linear-gradient(135deg, rgba(5, 15, 19, 0.95) 0%, rgba(13, 31, 38, 0.95) 100%);
             color: var(--color-light);
@@ -162,7 +157,6 @@
             margin-bottom: 1rem;
             color: var(--color-primary);
             letter-spacing: 2px;
-            white-space: nowrap;
         }
 
         .hero p {
@@ -200,67 +194,6 @@
             background-color: var(--color-gold);
         }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-primary);
-            color: var(--color-dark);
-        }
-
-        /* ====== SEARCH SECTION ====== */
-        .search-section {
-            max-width: 1400px;
-            margin: -2rem auto 4rem;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .search-container {
-            background-color: var(--color-dark);
-            border: 2px solid var(--color-primary);
-            border-radius: 0;
-            padding: 1.5rem;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .search-container input {
-            flex: 1;
-            background-color: transparent;
-            border: none;
-            color: var(--color-light);
-            font-size: 1rem;
-            outline: none;
-            padding: 0.5rem;
-        }
-
-        .search-container input::placeholder {
-            color: rgba(245, 243, 239, 0.5);
-        }
-
-        .search-btn {
-            padding: 0.75rem 1.5rem;
-            background-color: var(--color-primary);
-            color: var(--color-dark);
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .search-btn:hover {
-            background-color: var(--color-gold);
-        }
-
-        /* ====== FILTER BUTTONS ====== */
         .filter-buttons {
             max-width: 1400px;
             margin: 0 auto 3rem;
@@ -294,7 +227,6 @@
             border-color: var(--color-primary);
         }
 
-        /* ====== PRODUCTS GRID ====== */
         .products-section {
             max-width: 1400px;
             margin: 0 auto;
@@ -337,12 +269,6 @@
             font-size: 4rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .product-image-text {
-            position: relative;
-            z-index: 2;
-            text-align: center;
         }
 
         .product-info {
@@ -432,7 +358,6 @@
             color: var(--color-dark);
         }
 
-        /* ====== CART MODAL ====== */
         .cart-modal {
             display: none;
             position: fixed;
@@ -547,28 +472,57 @@
             color: var(--color-dark);
         }
 
-        .cart-footer {
-            padding: 0;
+        .cart-summary {
+            padding: 1.5rem;
             border-top: 2px solid var(--color-primary);
-            display: none;
-            flex-direction: column;
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .cart-footer.show {
-            display: flex;
+            background-color: rgba(13, 31, 38, 0.6);
+            flex-shrink: 0;
         }
 
         .cart-total {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
+            color: var(--color-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-form {
+            padding: 1.5rem;
+            border-top: 2px solid var(--color-primary);
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
             color: var(--color-primary);
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            background-color: var(--color-navy);
+            border: 1px solid var(--color-primary);
+            color: var(--color-light);
+            font-size: 0.9rem;
+            font-family: var(--font-sans);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+            box-shadow: 0 0 10px rgba(166, 131, 73, 0.3);
         }
 
         .checkout-btn {
@@ -583,9 +537,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 1rem;
-            text-decoration: none;
-            display: block;
-            text-align: center;
         }
 
         .checkout-btn:hover {
@@ -598,91 +549,6 @@
             color: rgba(245, 243, 239, 0.7);
         }
 
-        /* ====== ORDER SUMMARY ====== */
-        .order-summary {
-            background-color: rgba(13, 31, 38, 0.6);
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .order-summary-title {
-            font-family: var(--font-serif);
-            font-size: 1rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-        }
-
-        .order-items {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            max-height: 150px;
-            overflow-y: auto;
-            padding-right: 0.5rem;
-        }
-
-        .order-item-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: rgba(245, 243, 239, 0.8);
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .order-item-name {
-            flex: 1;
-        }
-
-        .order-item-qty {
-            color: var(--color-gold);
-            font-weight: 600;
-            margin: 0 0.8rem;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .order-item-price {
-            color: var(--color-gold);
-            font-weight: 600;
-            min-width: 60px;
-            text-align: right;
-        }
-
-        .order-divider {
-            border-top: 2px solid var(--color-primary);
-            margin: 1rem 0;
-        }
-
-        .order-final-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            padding-top: 0.5rem;
-        }
-
-        .order-final-total span:last-child {
-            color: var(--color-gold);
-            font-size: 1.3rem;
-        }
-
-        .order-timestamp {
-            font-size: 0.75rem;
-            color: rgba(245, 243, 239, 0.5);
-            margin-top: 0.8rem;
-            text-align: center;
-            font-style: italic;
-        }
-
-        /* ====== FOOTER ====== */
         footer {
             background-color: var(--color-navy);
             border-top: 2px solid var(--color-primary);
@@ -728,31 +594,6 @@
             padding-left: 0.5rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-border);
-            border: 1px solid var(--color-primary);
-            text-decoration: none;
-            color: var(--color-primary);
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .social-links a:hover {
-            background-color: var(--color-primary);
-            color: var(--color-dark);
-        }
-
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
@@ -761,19 +602,6 @@
             text-align: center;
             color: rgba(245, 243, 239, 0.6);
             font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* ====== ANIMATIONS ====== */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes fadeInUp {
@@ -787,7 +615,6 @@
             }
         }
 
-        /* ====== RESPONSIVE ====== */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -815,23 +642,13 @@
             .nav-links {
                 display: none;
             }
-
-            .header-content {
-                padding: 1rem;
-            }
-
-            .search-container {
-                flex-direction: column;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo-container">
-                <img src="logo.png" alt="ICONIC Logo" class="logo-image">
                 <a href="#" class="logo">ICONIC</a>
             </div>
             <nav class="nav-links">
@@ -841,7 +658,7 @@
             <div class="header-icons">
                 <a href="https://instagram.com/iconic__egy_" target="_blank" class="instagram-icon" title="Follow us on Instagram">📷</a>
                 <a href="https://wa.me/201069493339" target="_blank" class="instagram-icon" title="Chat on WhatsApp">💬</a>
-                <button class="cart-icon" id="cartIcon" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; padding: 0; transition: all 0.3s ease;">
+                <button class="cart-icon" id="cartIcon">
                     🛍️
                     <span class="cart-count" id="cartCount">0</span>
                 </button>
@@ -849,7 +666,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Be seen. Be felt. Be Iconic</h1>
@@ -860,7 +676,6 @@
         </div>
     </section>
 
-    <!-- Products Section with Filters -->
     <section class="products-section" id="products">
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
             <div class="filter-buttons" style="margin-bottom: 3rem;">
@@ -870,13 +685,10 @@
                 <button class="filter-btn" data-filter="exclusive">Exclusive</button>
                 <button class="filter-btn" data-filter="limited">Limited Edition</button>
             </div>
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be dynamically inserted here -->
-            </div>
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
-    <!-- Cart Modal -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-header">
             <h2>Shopping Cart</h2>
@@ -885,57 +697,48 @@
         <div class="cart-items" id="cartItems">
             <div class="empty-cart">Your cart is empty</div>
         </div>
-        <div class="cart-footer" id="cartFooter" style="display: none; flex-direction: column; flex: 1; overflow: hidden;">
-            <div class="order-summary" id="orderSummary" style="padding: 1rem; border-bottom: 2px solid var(--color-primary); flex-shrink: 0;">
-                <div class="order-summary-title">Order Summary</div>
-                <div class="order-items" id="orderItems"></div>
-                <div class="order-divider"></div>
-                <div class="order-final-total">
-                    <span>Total Amount:</span>
-                    <span id="orderTotalAmount">$0.00</span>
-                </div>
-                <div class="order-timestamp" id="orderTimestamp"></div>
+
+        <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotalAmount">$0.00</span>
+            </div>
+        </div>
+
+        <form name="iconic_order" method="POST" netlify netlify-honeypot="bot-field" class="checkout-form" id="checkoutForm" style="display: none;">
+            <input type="hidden" name="bot-field">
+            <input type="hidden" name="order_items" id="orderItemsField">
+            <input type="hidden" name="order_total" id="orderTotalField">
+
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" required>
             </div>
 
-            <form name="iconic_order" method="POST" netlify style="display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; flex: 1; padding: 1.5rem;">
-                <!-- Hidden field for order items -->
-                <input type="hidden" name="order_items" id="orderItemsField" value="">
-                <!-- Hidden field for total -->
-                <input type="hidden" name="order_total" id="orderTotalField" value="">
-                <!-- Hidden field for timestamp -->
-                <input type="hidden" name="order_date" id="orderDateField" value="">
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" name="email" required>
+            </div>
 
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Full Name *</label>
-                    <input type="text" name="name" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
-                </div>
-                
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Email *</label>
-                    <input type="email" name="email" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
-                </div>
+            <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" name="phone" required>
+            </div>
 
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Phone *</label>
-                    <input type="tel" name="phone" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
-                </div>
+            <div class="form-group">
+                <label>Delivery Address *</label>
+                <textarea name="address" required rows="3"></textarea>
+            </div>
 
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Delivery Address *</label>
-                    <textarea name="address" required rows="2" style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;"></textarea>
-                </div>
+            <div class="form-group">
+                <label>Special Requests (Optional)</label>
+                <textarea name="requests" rows="2"></textarea>
+            </div>
 
-                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Special Requests (Optional)</label>
-                    <textarea name="requests" rows="2" style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;"></textarea>
-                </div>
-
-                <button type="submit" class="checkout-btn">Place Order</button>
-            </form>
-        </div>
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
     </div>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
@@ -960,7 +763,6 @@
     </footer>
 
     <script>
-        // Product Database
         const products = [
             { id: 1, name: 'Signature Blend', category: 'luxury', price: 185.00, description: 'Handcrafted selection', emoji: '✨' },
             { id: 2, name: 'Classic Elegance', category: 'premium', price: 145.00, description: 'Timeless collection', emoji: '💎' },
@@ -979,7 +781,6 @@
         let cart = [];
         let currentFilter = 'all';
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             setupEventListeners();
@@ -998,9 +799,7 @@
                 card.className = 'product-card';
                 card.style.animation = `fadeInUp 0.5s ease ${index * 0.05}s backwards`;
                 card.innerHTML = `
-                    <div class="product-image">
-                        <div class="product-image-text">${product.emoji}</div>
-                    </div>
+                    <div class="product-image">${product.emoji}</div>
                     <div class="product-info">
                         <div class="product-category">${product.category}</div>
                         <div class="product-name">${product.name}</div>
@@ -1017,7 +816,6 @@
         }
 
         function setupEventListeners() {
-            // Filter buttons
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -1027,7 +825,6 @@
                 });
             });
 
-            // Cart icon
             document.getElementById('cartIcon').addEventListener('click', () => {
                 document.getElementById('cartModal').classList.toggle('open');
             });
@@ -1036,7 +833,6 @@
                 document.getElementById('cartModal').classList.remove('open');
             });
 
-            // Shop button
             document.getElementById('shopBtn').addEventListener('click', () => {
                 document.querySelector('.products-section').classList.add('show');
                 document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
@@ -1076,20 +872,15 @@
         function updateCart() {
             const cartCount = document.getElementById('cartCount');
             const cartItems = document.getElementById('cartItems');
-            const cartFooter = document.getElementById('cartFooter');
-            const cartTotal = document.getElementById('cartTotal');
-            const orderItems = document.getElementById('orderItems');
-            const orderTotalAmount = document.getElementById('orderTotalAmount');
-            const orderTimestamp = document.getElementById('orderTimestamp');
-            const orderItemsField = document.getElementById('orderItemsField');
-            const orderTotalField = document.getElementById('orderTotalField');
-            const orderDateField = document.getElementById('orderDateField');
+            const cartSummary = document.getElementById('cartSummary');
+            const checkoutForm = document.getElementById('checkoutForm');
 
             cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 
             if (cart.length === 0) {
                 cartItems.innerHTML = '<div class="empty-cart">Your cart is empty</div>';
-                cartFooter.classList.remove('show');
+                cartSummary.style.display = 'none';
+                checkoutForm.style.display = 'none';
             } else {
                 cartItems.innerHTML = cart.map(item => `
                     <div class="cart-item">
@@ -1108,37 +899,14 @@
                 `).join('');
 
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                cartTotal.textContent = '$' + total.toFixed(2);
+                document.getElementById('cartTotalAmount').textContent = '$' + total.toFixed(2);
 
-                // Generate order summary
-                orderItems.innerHTML = cart.map(item => `
-                    <div class="order-item-row">
-                        <span class="order-item-name">${item.name}</span>
-                        <span class="order-item-qty">x${item.quantity}</span>
-                        <span class="order-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
-                    </div>
-                `).join('');
-
-                orderTotalAmount.textContent = '$' + total.toFixed(2);
-
-                // Set timestamp
-                const now = new Date();
-                const dateString = now.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                orderTimestamp.textContent = `Order Date: ${dateString}`;
-
-                // Populate hidden fields
                 const itemsText = cart.map(item => `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`).join(' | ');
-                orderItemsField.value = itemsText;
-                orderTotalField.value = '$' + total.toFixed(2);
-                orderDateField.value = now.toISOString();
+                document.getElementById('orderItemsField').value = itemsText;
+                document.getElementById('orderTotalField').value = '$' + total.toFixed(2);
 
-                cartFooter.classList.add('show');
+                cartSummary.style.display = 'block';
+                checkoutForm.style.display = 'block';
             }
         }
 
