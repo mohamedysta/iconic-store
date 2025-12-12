@@ -22,10 +22,6 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: var(--font-sans);
             background-color: var(--color-navy);
@@ -41,7 +37,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -62,11 +57,6 @@
         .logo-image {
             height: 50px;
             width: auto;
-            transition: all 0.3s ease;
-        }
-
-        .logo-image:hover {
-            transform: scale(1.1);
         }
 
         .logo {
@@ -76,12 +66,11 @@
             color: var(--color-primary);
             text-decoration: none;
             letter-spacing: 4px;
-            transition: all 0.3s ease;
+            transition: color 0.15s ease;
         }
 
         .logo:hover {
             color: var(--color-gold);
-            transform: scale(1.05);
         }
 
         .nav-links {
@@ -96,23 +85,12 @@
             font-size: 0.95rem;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: color 0.15s ease;
             position: relative;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--color-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a:hover {
+            color: var(--color-gold);
         }
 
         .header-icons {
@@ -163,25 +141,12 @@
 
         /* ====== HERO SECTION ====== */
         .hero {
-            background: linear-gradient(135deg, rgba(5, 15, 19, 0.95) 0%, rgba(13, 31, 38, 0.95) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23D4C5A0" opacity="0.03"/></svg>');
+            background: linear-gradient(135deg, rgba(5, 15, 19, 0.95) 0%, rgba(13, 31, 38, 0.95) 100%);
             color: var(--color-light);
             padding: 8rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, var(--color-gold) 0%, transparent 70%);
-            opacity: 0.03;
-            pointer-events: none;
         }
 
         .hero-content {
@@ -197,7 +162,6 @@
             margin-bottom: 1rem;
             color: var(--color-primary);
             letter-spacing: 2px;
-            animation: fadeInDown 0.8s ease;
             white-space: nowrap;
         }
 
@@ -206,14 +170,12 @@
             margin-bottom: 2rem;
             color: rgba(245, 243, 239, 0.9);
             letter-spacing: 0.5px;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
         .hero-buttons {
             display: flex;
             gap: 2rem;
             justify-content: center;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
         }
 
         .btn {
@@ -223,7 +185,7 @@
             text-decoration: none;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.15s ease;
             font-size: 0.95rem;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -236,8 +198,6 @@
 
         .btn-primary:hover {
             background-color: var(--color-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(166, 131, 73, 0.3);
         }
 
         .btn-secondary {
@@ -249,7 +209,6 @@
         .btn-secondary:hover {
             background-color: var(--color-primary);
             color: var(--color-dark);
-            transform: translateY(-3px);
         }
 
         /* ====== SEARCH SECTION ====== */
@@ -301,24 +260,11 @@
             background-color: var(--color-gold);
         }
 
-        /* ====== FILTER SECTION ====== */
-        .filter-section {
+        /* ====== FILTER BUTTONS ====== */
+        .filter-buttons {
             max-width: 1400px;
             margin: 0 auto 3rem;
             padding: 0 2rem;
-        }
-
-        .filter-label {
-            display: block;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--color-primary);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .filter-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
@@ -353,6 +299,11 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem 6rem;
+            display: none;
+        }
+
+        .products-section.show {
+            display: block;
         }
 
         .products-grid {
@@ -373,8 +324,6 @@
 
         .product-card:hover {
             border-color: var(--color-primary);
-            box-shadow: 0 20px 60px rgba(212, 197, 160, 0.15);
-            transform: translateY(-8px);
         }
 
         .product-image {
@@ -388,19 +337,6 @@
             font-size: 4rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 30%, var(--color-gold), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .product-card:hover .product-image::before {
-            opacity: 0.1;
         }
 
         .product-image-text {
@@ -465,7 +401,7 @@
             border: none;
             cursor: pointer;
             font-weight: 700;
-            transition: all 0.3s ease;
+            transition: background-color 0.15s ease;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 1px;
@@ -473,7 +409,6 @@
 
         .add-to-cart:hover {
             background-color: var(--color-gold);
-            transform: translateY(-2px);
         }
 
         .wishlist-btn {
@@ -613,13 +548,16 @@
         }
 
         .cart-footer {
-            padding: 2rem;
+            padding: 0;
             border-top: 2px solid var(--color-primary);
             display: none;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
         }
 
         .cart-footer.show {
-            display: block;
+            display: flex;
         }
 
         .cart-total {
@@ -652,14 +590,96 @@
 
         .checkout-btn:hover {
             background-color: var(--color-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(166, 131, 73, 0.3);
         }
 
         .empty-cart {
             text-align: center;
             padding: 3rem;
             color: rgba(245, 243, 239, 0.7);
+        }
+
+        /* ====== ORDER SUMMARY ====== */
+        .order-summary {
+            background-color: rgba(13, 31, 38, 0.6);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-summary-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            max-height: 150px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .order-item-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(245, 243, 239, 0.8);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .order-item-name {
+            flex: 1;
+        }
+
+        .order-item-qty {
+            color: var(--color-gold);
+            font-weight: 600;
+            margin: 0 0.8rem;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .order-item-price {
+            color: var(--color-gold);
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .order-divider {
+            border-top: 2px solid var(--color-primary);
+            margin: 1rem 0;
+        }
+
+        .order-final-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            padding-top: 0.5rem;
+        }
+
+        .order-final-total span:last-child {
+            color: var(--color-gold);
+            font-size: 1.3rem;
+        }
+
+        .order-timestamp {
+            font-size: 0.75rem;
+            color: rgba(245, 243, 239, 0.5);
+            margin-top: 0.8rem;
+            text-align: center;
+            font-style: italic;
         }
 
         /* ====== FOOTER ====== */
@@ -731,7 +751,6 @@
         .social-links a:hover {
             background-color: var(--color-primary);
             color: var(--color-dark);
-            transform: translateY(-3px);
         }
 
         .footer-bottom {
@@ -820,11 +839,12 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-icons">
-                <a href="https://instagram.com/iconic__egy_" target="_blank" class="instagram-icon" title="Follow us on Instagram"><img src="instagram.png" alt="Instagram" style="height: 24px; width: auto;"></a>
-                <div class="cart-icon" id="cartIcon">
+                <a href="https://instagram.com/iconic__egy_" target="_blank" class="instagram-icon" title="Follow us on Instagram">📷</a>
+                <a href="https://wa.me/201069493339" target="_blank" class="instagram-icon" title="Chat on WhatsApp">💬</a>
+                <button class="cart-icon" id="cartIcon" style="background: none; border: none; cursor: pointer; font-size: 1.5rem; padding: 0; transition: all 0.3s ease;">
                     🛍️
                     <span class="cart-count" id="cartCount">0</span>
-                </div>
+                </button>
             </div>
         </div>
     </header>
@@ -840,30 +860,19 @@
         </div>
     </section>
 
-    <!-- Search Section -->
-    <section class="search-section">
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search products...">
-            <button class="search-btn">Search</button>
-        </div>
-    </section>
-
-    <!-- Filter Section -->
-    <section class="filter-section">
-        <label class="filter-label">Filter by Category</label>
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">All Products</button>
-            <button class="filter-btn" data-filter="luxury">Luxury</button>
-            <button class="filter-btn" data-filter="premium">Premium</button>
-            <button class="filter-btn" data-filter="exclusive">Exclusive</button>
-            <button class="filter-btn" data-filter="limited">Limited Edition</button>
-        </div>
-    </section>
-
-    <!-- Products Section -->
+    <!-- Products Section with Filters -->
     <section class="products-section" id="products">
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be dynamically inserted here -->
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+            <div class="filter-buttons" style="margin-bottom: 3rem;">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+                <button class="filter-btn" data-filter="exclusive">Exclusive</button>
+                <button class="filter-btn" data-filter="limited">Limited Edition</button>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
         </div>
     </section>
 
@@ -876,12 +885,53 @@
         <div class="cart-items" id="cartItems">
             <div class="empty-cart">Your cart is empty</div>
         </div>
-        <div class="cart-footer" id="cartFooter">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">$0.00</span>
+        <div class="cart-footer" id="cartFooter" style="display: none; flex-direction: column; flex: 1; overflow: hidden;">
+            <div class="order-summary" id="orderSummary" style="padding: 1rem; border-bottom: 2px solid var(--color-primary); flex-shrink: 0;">
+                <div class="order-summary-title">Order Summary</div>
+                <div class="order-items" id="orderItems"></div>
+                <div class="order-divider"></div>
+                <div class="order-final-total">
+                    <span>Total Amount:</span>
+                    <span id="orderTotalAmount">$0.00</span>
+                </div>
+                <div class="order-timestamp" id="orderTimestamp"></div>
             </div>
-            <a href="https://wa.me/201069493339?text=I%20would%20like%20to%20place%20an%20order%20from%20ICONIC%20Store" class="checkout-btn" target="_blank">Chat on WhatsApp</a>
+
+            <form name="iconic_order" method="POST" netlify style="display: flex; flex-direction: column; gap: 1rem; overflow-y: auto; flex: 1; padding: 1.5rem;">
+                <!-- Hidden field for order items -->
+                <input type="hidden" name="order_items" id="orderItemsField" value="">
+                <!-- Hidden field for total -->
+                <input type="hidden" name="order_total" id="orderTotalField" value="">
+                <!-- Hidden field for timestamp -->
+                <input type="hidden" name="order_date" id="orderDateField" value="">
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Full Name *</label>
+                    <input type="text" name="name" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
+                </div>
+                
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Email *</label>
+                    <input type="email" name="email" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Phone *</label>
+                    <input type="tel" name="phone" required style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;">
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Delivery Address *</label>
+                    <textarea name="address" required rows="2" style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;"></textarea>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: var(--color-primary); font-weight: 600;">Special Requests (Optional)</label>
+                    <textarea name="requests" rows="2" style="padding: 0.8rem; background-color: var(--color-navy); border: 1px solid var(--color-primary); color: var(--color-light); font-size: 0.9rem;"></textarea>
+                </div>
+
+                <button type="submit" class="checkout-btn">Place Order</button>
+            </form>
         </div>
     </div>
 
@@ -891,25 +941,17 @@
             <div class="footer-section">
                 <h3>ICONIC Store</h3>
                 <p>Curating the finest selection of premium products for our discerning clientele.</p>
-                <div class="social-links">
-                    <a href="https://instagram.com/iconic__egy_" title="Instagram" target="_blank">📸</a>
-                    <a href="https://wa.me/201069493339" title="WhatsApp" target="_blank">💬</a>
-                    <a href="mailto:info@iconic-store.com" title="Email">✉️</a>
-                </div>
             </div>
             <div class="footer-section">
-                <h3>Customer Service</h3>
-                <a href="https://wa.me/201069493339">Contact Us</a>
-                <a href="#">Shipping Information</a>
-                <a href="#">Returns & Exchanges</a>
-                <a href="#">FAQ</a>
+                <h3>Get in Touch</h3>
+                <a href="https://wa.me/201069493339">💬 WhatsApp</a>
+                <a href="mailto:info@iconic-store.com">📧 Email</a>
+                <a href="https://instagram.com/iconic__egy_" target="_blank">📷 Instagram</a>
             </div>
             <div class="footer-section">
-                <h3>Collections</h3>
-                <a href="#">New Arrivals</a>
-                <a href="#">Best Sellers</a>
-                <a href="#">Limited Edition</a>
-                <a href="#">Exclusive Deals</a>
+                <h3>Shop</h3>
+                <a href="#products">All Products</a>
+                <a href="#products">Collections</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -994,18 +1036,9 @@
                 document.getElementById('cartModal').classList.remove('open');
             });
 
-            // Search
-            document.getElementById('searchInput').addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                const grid = document.getElementById('productsGrid');
-                document.querySelectorAll('.product-card').forEach(card => {
-                    const name = card.querySelector('.product-name').textContent.toLowerCase();
-                    card.style.display = name.includes(term) ? '' : 'none';
-                });
-            });
-
             // Shop button
             document.getElementById('shopBtn').addEventListener('click', () => {
+                document.querySelector('.products-section').classList.add('show');
                 document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
             });
         }
@@ -1045,6 +1078,12 @@
             const cartItems = document.getElementById('cartItems');
             const cartFooter = document.getElementById('cartFooter');
             const cartTotal = document.getElementById('cartTotal');
+            const orderItems = document.getElementById('orderItems');
+            const orderTotalAmount = document.getElementById('orderTotalAmount');
+            const orderTimestamp = document.getElementById('orderTimestamp');
+            const orderItemsField = document.getElementById('orderItemsField');
+            const orderTotalField = document.getElementById('orderTotalField');
+            const orderDateField = document.getElementById('orderDateField');
 
             cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -1070,6 +1109,35 @@
 
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 cartTotal.textContent = '$' + total.toFixed(2);
+
+                // Generate order summary
+                orderItems.innerHTML = cart.map(item => `
+                    <div class="order-item-row">
+                        <span class="order-item-name">${item.name}</span>
+                        <span class="order-item-qty">x${item.quantity}</span>
+                        <span class="order-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `).join('');
+
+                orderTotalAmount.textContent = '$' + total.toFixed(2);
+
+                // Set timestamp
+                const now = new Date();
+                const dateString = now.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                orderTimestamp.textContent = `Order Date: ${dateString}`;
+
+                // Populate hidden fields
+                const itemsText = cart.map(item => `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`).join(' | ');
+                orderItemsField.value = itemsText;
+                orderTotalField.value = '$' + total.toFixed(2);
+                orderDateField.value = now.toISOString();
+
                 cartFooter.classList.add('show');
             }
         }
